@@ -3,7 +3,10 @@ const sumAll = function(num1, num2) {
     let bigNum;
     let sum = 0;
     // CHANGE TO SWITCH SINTAX FOR PRACTICE
-    if (num1 < 0 || num2 < 0) {
+    if (num1 < 0 || 
+        num2 < 0 || 
+        (typeof num1 != 'number') || 
+        (typeof num2 != 'number')) {
         return 'ERROR';
     }
     else if (num1 < num2) {
@@ -21,6 +24,8 @@ const sumAll = function(num1, num2) {
     }
     return sum;
 };
+
+
 
 // PSUEDOCODE
 // Compare numbers to find the larger number 

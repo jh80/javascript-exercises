@@ -1,17 +1,25 @@
-const add = function() {
-	
+const add = function(...nums) {
+  let total = 0;
+	for (const num of nums) {
+    total += num;
+  }
+  return total;
 };
 
-const subtract = function() {
-	
+const subtract = function(initial, ...nums) {
+  let total = initial;
+	for (const num of nums) {
+    total -= num
+  }
+  return total;
 };
 
-const sum = function() {
-	
-};
+ const sum = function(nums) {
+  return nums.reduce((total, curr) => total + curr, 0);
+ };
 
-const multiply = function() {
-
+const multiply = function(nums) {
+  return nums.reduce((total, curr) => total * curr, 1);
 };
 
 const power = function() {

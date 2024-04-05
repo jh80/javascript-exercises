@@ -22,8 +22,8 @@ const multiply = function(nums) {
   return nums.reduce((total, curr) => total * curr, 1);
 };
 
-const power = function() {
-	
+const power = function(num, exponent) {
+	return num**exponent;
 };
 
 const factorial = function() {

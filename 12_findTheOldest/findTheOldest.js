@@ -4,25 +4,19 @@
 // reduce array 
 
 const findTheOldest = function(array) {
-    const oldest = array.reduce(((last, curr) => {
+    const oldest = array.reduce((last, curr) => {
         const d = new Date();
         const thisYear = d.getFullYear();
-        let currEndYear;
-        let lastEndYear;
-        if (curr.yearOfDeath) {
-            currEndYear = curr.yearOfDeath;
-        } else {
+        let currEndYear = curr.yearOfDeath;
+        let lastEndYear = last.yearOfDeath;
+        if (!currEndYear) {
             currEndYear = thisYear;
         }
-        if (last.yearOfDeath) {
-            lastEndYear = last.yearOfDeath;
-        } else {
+        if (!lastEndYear) {
             lastEndYear = thisYear;
         }
-        const currAge = currEndYear - curr.yearOfBirth;
-        const lastAge = lastEndYear - last.yearOfBirth
-        return (currAge > lastAge) ? curr : last;
-    }))
+        return (currEndYear - curr.yearOfBirth) > (lastEndYear - last.yearOfBirth) ? curr : last;
+    })
     return oldest;
 };
 

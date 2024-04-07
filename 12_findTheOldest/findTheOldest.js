@@ -5,20 +5,19 @@
 
 const findTheOldest = function(array) {
     const oldest = array.reduce((last, curr) => {
-        const d = new Date();
-        const thisYear = d.getFullYear();
-        let currEndYear = curr.yearOfDeath;
-        let lastEndYear = last.yearOfDeath;
-        if (!currEndYear) {
-            currEndYear = thisYear;
-        }
-        if (!lastEndYear) {
-            lastEndYear = thisYear;
-        }
-        return (currEndYear - curr.yearOfBirth) > (lastEndYear - last.yearOfBirth) ? curr : last;
+        const currAge = calcAge(curr.yearOfBirth, curr.yearOfDeath)
+        const lastAge = calcAge(last.yearOfBirth, last.yearOfDeath)
+        return (currAge) > (lastAge) ? curr : last;
     })
     return oldest;
 };
+
+function calcAge(birth, death) {
+    if (!death) {
+      death = new Date().getFullYear();   
+    } 
+    return death - birth;
+}
 
 // Do not edit below this line
 module.exports = findTheOldest;
